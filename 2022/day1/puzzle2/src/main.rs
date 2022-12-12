@@ -7,7 +7,7 @@ fn main() {
     let mut calorie_sum = 0;
 
     for line in inventory.lines() {
-        if line != "" {
+        if !line.is_empty() {
             calorie_sum += line.parse::<i32>().unwrap();
             continue;
         }

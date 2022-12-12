@@ -5,9 +5,9 @@ fn main() {
     let mut num_overlaps = 0;
 
     for assignment in assignments.lines() {
-        let (assignment1, assignment2) = assignment.split_once(",").unwrap();
-        let (start1, end1) = assignment1.split_once("-").unwrap();
-        let (start2, end2) = assignment2.split_once("-").unwrap();
+        let (assignment1, assignment2) = assignment.split_once(',').unwrap();
+        let (start1, end1) = assignment1.split_once('-').unwrap();
+        let (start2, end2) = assignment2.split_once('-').unwrap();
 
         let start1 = start1.parse::<i32>().unwrap();
         let start2 = start2.parse::<i32>().unwrap();
