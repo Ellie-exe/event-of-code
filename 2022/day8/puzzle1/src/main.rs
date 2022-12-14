@@ -16,48 +16,48 @@ fn main() {
 
     let mut num_visible = 0;
 
-    for (i, row) in grid.iter().enumerate() {
-        if i == 0 || i == grid.len() - 1 {
+    for (r, row) in grid.iter().enumerate() {
+        if r == 0 || r == grid.len() - 1 {
             num_visible += row.len();
             continue;
         }
 
-        for (j, height) in row.iter().enumerate() {
+        for (c, height) in row.iter().enumerate() {
             let mut left_visible = true;
             let mut right_visible = true;
             let mut top_visible = true;
             let mut bottom_visible = true;
 
-            if j == 0 || j == row.len() - 1 {
+            if c == 0 || c == row.len() - 1 {
                 num_visible += 1;
                 continue;
             }
 
-            for other_height in &row[0..j] {
+            for other_height in &row[0..c] {
                 if *other_height >= *height {
                     left_visible = false;
-                    continue;
+                    break;
                 }
             }
 
-            for other_height in &row[j + 1..] {
+            for other_height in &row[c + 1..] {
                 if *other_height >= *height {
                     right_visible = false;
-                    continue;
+                    break;
                 }
             }
 
-            for other_row in &grid[0..i] {
-                if other_row[j] >= *height {
+            for other_row in &grid[0..r] {
+                if other_row[c] >= *height {
                     top_visible = false;
-                    continue;
+                    break;
                 }
             }
 
-            for other_row in &grid[i + 1..] {
-                if other_row[j] >= *height {
+            for other_row in &grid[r + 1..] {
+                if other_row[c] >= *height {
                     bottom_visible = false;
-                    continue;
+                    break;
                 }
             }
 
