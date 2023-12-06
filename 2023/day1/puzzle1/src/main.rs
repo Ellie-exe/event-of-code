@@ -4,10 +4,10 @@ fn main() {
     let document = fs::read_to_string("input.txt").unwrap();
     let mut sum = 0;
 
-    for lines in document.lines() {
+    for line in document.lines() {
         let mut values = vec![];
 
-        for character in lines.chars() {
+        for character in line.chars() {
             if character.is_ascii_digit() {
                 values.push(character.to_digit(10).unwrap());
             }
