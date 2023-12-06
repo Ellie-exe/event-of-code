@@ -8,7 +8,7 @@ fn main() {
         let mut values = vec![];
 
         for character in lines.chars() {
-            if character.is_digit(10) {
+            if character.is_ascii_digit() {
                 values.push(character.to_digit(10).unwrap());
             }
         }
